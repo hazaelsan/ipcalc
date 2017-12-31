@@ -1,5 +1,8 @@
 # ipcalc
 
+[![Build Status](https://travis-ci.org/hazaelsan/ipcalc.svg?branch=master)](https://travis-ci.org/hazaelsan/ipcalc)
+[![GoDoc](https://godoc.org/github.com/hazaelsan/ipcalc?status.svg)](https://godoc.org/github.com/hazaelsan/ipcalc)
+
 IP arithmetic utilities.
 
 ## Package ipcalc
