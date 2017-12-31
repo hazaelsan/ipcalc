@@ -3,20 +3,32 @@
 [![Build Status](https://travis-ci.org/hazaelsan/ipcalc.svg?branch=master)](https://travis-ci.org/hazaelsan/ipcalc)
 [![GoDoc](https://godoc.org/github.com/hazaelsan/ipcalc?status.svg)](https://godoc.org/github.com/hazaelsan/ipcalc)
 
-IP arithmetic utilities.
+IP arithmetic utilities for Go, it supports both IPv4/IPv6 addresses.
+
+## Installation
+
+```shell
+go get -u github.com/hazaelsan/ipcalc
+```
+
+## Import
+
+```go
+import "github.com/hazaelsan/ipcalc"
+```
 
 ## Package ipcalc
 
-This package provides basic IP arithmetic utilities, it supports both IPv4/IPv6 addresses.
+This package provides basic IP arithmetic utilities.
 
 ```go
 // Get the next IP address
-next := NextIP(net.ParseIP("192.0.2.1")) // 192.0.2.2
+next := ipcalc.NextIP(net.ParseIP("192.0.2.1")) // 192.0.2.2
 ```
 
 Note that IP wrapping is entirely possible in most functions
 ```go
-next := NextIP(net.ParseIP("255.255.255.255")) // 0.0.0.0
+next := ipcalc.NextIP(net.ParseIP("255.255.255.255")) // 0.0.0.0
 ```
 
 ## Package wildcard
@@ -36,4 +48,6 @@ Examples below, format is IP/Wildcard:
   * `192.0.2.10/0.0.255.0` matches `192.0.*.10`
   * `192.0.2.1/0.0.255.254` matches `192.0.*.{1,3,5,7,...,255}`
 
-Use `ipcalc.Complement` to convert a subnet mask to its wildcard counterpart.
+Use
+[ipcalc.Complement](https://godoc.org/github.com/hazaelsan/ipcalc#Complement)
+to convert a subnet mask to its wildcard counterpart.
